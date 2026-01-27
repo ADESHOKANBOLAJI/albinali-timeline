@@ -1,0 +1,334 @@
+<!-- AlBinali History Timeline - Elementor Compatible -->
+<!-- Copy this entire code block and paste into an HTML widget -->
+
+<div id="ab-timeline" dir="rtl">
+    <style>
+        #ab-timeline {
+            all: initial !important;
+            display: block !important;
+            width: 100% !important;
+            max-width: 1100px !important;
+            margin: 0 auto !important;
+            padding: 40px 20px !important;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+            line-height: 1.5 !important;
+            color: #333 !important
+        }
+
+        #ab-timeline * {
+            all: unset !important;
+            display: revert !important;
+            box-sizing: border-box !important
+        }
+
+        #ab-timeline .tl-wrap {
+            display: flex !important;
+            gap: 40px !important;
+            flex-direction: row !important;
+            align-items: flex-start !important
+        }
+
+        #ab-timeline .tl-nav {
+            flex-shrink: 0 !important;
+            width: 160px !important;
+            position: relative !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 0 !important
+        }
+
+        #ab-timeline .tl-line {
+            position: absolute !important;
+            left: 6px !important;
+            top: 16px !important;
+            bottom: -215px !important;
+            width: 2px !important;
+            background: #ddd !important;
+            display: block !important
+        }
+
+        #ab-timeline .tl-yr {
+            display: flex !important;
+            align-items: center !important;
+            gap: 14px !important;
+            padding: 12px 0 !important;
+            cursor: pointer !important;
+            border: none !important;
+            background: none !important;
+            text-align: left !important;
+            position: relative !important;
+            z-index: 2 !important;
+            width: 100% !important
+        }
+
+        #ab-timeline .tl-dot {
+            width: 14px !important;
+            height: 14px !important;
+            min-width: 14px !important;
+            border-radius: 50% !important;
+            background: #bbb !important;
+            flex-shrink: 0 !important;
+            transition: transform .2s, background .2s !important;
+            display: block !important
+        }
+
+        #ab-timeline .tl-txt {
+            font-size: 15px !important;
+            font-weight: 500 !important;
+            color: #888 !important;
+            transition: all .2s !important;
+            display: inline-block !important
+        }
+
+        #ab-timeline .tl-yr:hover .tl-dot {
+            background: #333 !important;
+            transform: scale(1.1) !important
+        }
+
+        #ab-timeline .tl-yr:hover .tl-txt {
+            color: #333 !important
+        }
+
+        #ab-timeline .tl-yr.on .tl-dot {
+            background: #222 !important;
+            transform: scale(1.3) !important;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, .1) !important
+        }
+
+        #ab-timeline .tl-yr.on .tl-txt {
+            font-size: 40px !important;
+            font-weight: 800 !important;
+            color: #111 !important;
+            line-height: 1 !important
+        }
+
+        #ab-timeline .tl-main {
+            flex: 1 !important;
+            position: relative !important;
+            min-width: 0 !important
+        }
+
+        #ab-timeline .tl-slide {
+            display: none !important;
+            flex-direction: column !important;
+            gap: 12px !important
+        }
+
+        #ab-timeline .tl-slide.on {
+            display: flex !important
+        }
+
+        #ab-timeline .tl-badge {
+            display: inline-block !important;
+            font-size: 11px !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: .08em !important;
+            padding: 4px 12px !important;
+            border-radius: 20px !important;
+            background: #f0f0f0 !important;
+            color: #666 !important;
+            width: fit-content !important
+        }
+
+        #ab-timeline .tl-title {
+            font-size: 26px !important;
+            font-weight: 700 !important;
+            color: #111 !important;
+            line-height: 1.3 !important
+        }
+
+        #ab-timeline .tl-desc {
+            font-size: 16px !important;
+            line-height: 1.6 !important;
+            color: #666 !important;
+            max-width: 600px !important
+        }
+
+        #ab-timeline .tl-img {
+            width: 100% !important;
+            max-width: 450px !important;
+            height: auto !important;
+            border-radius: 12px !important;
+            display: block !important;
+            margin-top: 8px !important
+        }
+
+        #ab-timeline .tl-dots {
+            display: flex !important;
+            gap: 6px !important;
+            margin-top: 20px !important;
+            flex-wrap: wrap !important
+        }
+
+        #ab-timeline .tl-pip {
+            width: 8px !important;
+            height: 8px !important;
+            min-width: 8px !important;
+            border-radius: 50% !important;
+            background: #ccc !important;
+            border: none !important;
+            cursor: pointer !important;
+            transition: all .2s !important
+        }
+
+        #ab-timeline .tl-pip:hover {
+            background: #888 !important
+        }
+
+        #ab-timeline .tl-pip.on {
+            width: 28px !important;
+            border-radius: 4px !important;
+            background: #222 !important
+        }
+
+        @media(max-width:768px) {
+            #ab-timeline .tl-wrap {
+                flex-direction: column !important;
+                gap: 24px !important
+            }
+
+            #ab-timeline .tl-nav {
+                width: 100% !important;
+                flex-direction: row !important;
+                flex-wrap: wrap !important;
+                gap: 12px !important;
+                overflow-x: auto !important
+            }
+
+            #ab-timeline .tl-line {
+                display: none !important
+            }
+
+            #ab-timeline .tl-dot {
+                display: none !important
+            }
+
+            #ab-timeline .tl-yr {
+                padding: 6px 0 !important
+            }
+
+            #ab-timeline .tl-txt {
+                font-size: 14px !important
+            }
+
+            #ab-timeline .tl-yr.on .tl-txt {
+                font-size: 24px !important
+            }
+
+            #ab-timeline .tl-title {
+                font-size: 22px !important
+            }
+
+            #ab-timeline .tl-desc {
+                font-size: 15px !important
+            }
+        }
+    </style>
+
+    <div class="tl-wrap">
+        <nav class="tl-nav">
+            <div class="tl-line"></div>
+            <button class="tl-yr on" data-i="0"><span class="tl-dot"></span><span class="tl-txt">1969</span></button>
+            <button class="tl-yr" data-i="1"><span class="tl-dot"></span><span class="tl-txt">1980s</span></button>
+            <button class="tl-yr" data-i="2"><span class="tl-dot"></span><span class="tl-txt">1990s</span></button>
+            <button class="tl-yr" data-i="3"><span class="tl-dot"></span><span class="tl-txt">2000s</span></button>
+            <button class="tl-yr" data-i="4"><span class="tl-dot"></span><span class="tl-txt">2022</span></button>
+            <button class="tl-yr" data-i="5"><span class="tl-dot"></span><span class="tl-txt">2023</span></button>
+            <button class="tl-yr" data-i="6"><span class="tl-dot"></span><span class="tl-txt">2025</span></button>
+        </nav>
+
+        <div class="tl-main">
+            <article class="tl-slide on" data-i="0">
+                <span class="tl-badge">1969</span>
+                <h2 class="tl-title">الانطلاقة والتأسيس</h2>
+                <p class="tl-desc">بدأت مسيرتنا عام 1969، مدفوعة برؤية المؤسسين للريادة في معدات البناء وقطع غيار
+                    الآلات.</p>
+                <img class="tl-img" src="https://dev.albinalico.com/wp-content/uploads/2025/12/1969.png" alt="1969"
+                    loading="lazy">
+            </article>
+
+            <article class="tl-slide" data-i="1">
+                <span class="tl-badge">1980s</span>
+                <h2 class="tl-title">التوسع السريع</h2>
+                <p class="tl-desc">وسّعنا نطاق أعمالنا ليشمل مضخات الهواء والمياه، والصمّامات، وحلولًا هيدروليكية
+                    مبتكرة، لنصبح المورد الرائد لفلاتر المعدات.</p>
+                <img class="tl-img" src="https://dev.albinalico.com/wp-content/uploads/2025/12/1980s.png" alt="1980s"
+                    loading="lazy">
+            </article>
+
+            <article class="tl-slide" data-i="2">
+                <span class="tl-badge">1990s</span>
+                <h2 class="tl-title">المرونة في مواجهة التغيير</h2>
+                <p class="tl-desc">في ظل التحولات الاقتصادية التي أعقبت حرب الخليج، قمنا بتكييف استراتيجيتنا لاستثمار
+                    الفرص الجديدة.</p>
+                <img class="tl-img" src="https://dev.albinalico.com/wp-content/uploads/2025/12/1990s.png" alt="1990s"
+                    loading="lazy">
+            </article>
+
+            <article class="tl-slide" data-i="3">
+                <span class="tl-badge">2000s</span>
+                <h2 class="tl-title">التخصص الاستراتيجي</h2>
+                <p class="tl-desc">تحوّلنا نحو الخراطيم الصناعية وملحقاتها، لنبرز كمتخصصين روّاد ونحقق مكانة إقليمية
+                    فريدة.</p>
+                <img class="tl-img" src="https://dev.albinalico.com/wp-content/uploads/2025/12/warehouse.webp"
+                    alt="2000s" loading="lazy">
+            </article>
+
+            <article class="tl-slide" data-i="4">
+                <span class="tl-badge">2022</span>
+                <h2 class="tl-title">تطوّر العلامة التجارية</h2>
+                <p class="tl-desc">عكست إعادة إطلاق العلامة التجارية باسم عبد الله محمد البينالي وشركاه نمونا وتطوّر
+                    قدراتنا.</p>
+                <img class="tl-img" src="https://dev.albinalico.com/wp-content/uploads/2025/12/8.webp" alt="2022"
+                    loading="lazy">
+            </article>
+
+            <article class="tl-slide" data-i="5">
+                <span class="tl-badge">2023</span>
+                <h2 class="tl-title">فصل جديد</h2>
+                <p class="tl-desc">تحوّلنا إلى شركة ذات مسؤولية محدودة، تأكيدًا لالتزامنا بأعلى معايير التميّز التشغيلي
+                    الحديث.</p>
+                <img class="tl-img" src="https://dev.albinalico.com/wp-content/uploads/2025/12/9.webp" alt="2023"
+                    loading="lazy">
+            </article>
+
+            <article class="tl-slide" data-i="6">
+                <span class="tl-badge">2025</span>
+                <h2 class="tl-title">آفاق متجددة</h2>
+                <p class="tl-desc">أطلقنا موقع البينالي للمستلزمات الصناعية لتعزيز وصولنا إلى عملائنا بشكل أكثر فاعلية.
+                </p>
+                <img class="tl-img" src="https://dev.albinalico.com/wp-content/uploads/2025/12/10.webp" alt="2025"
+                    loading="lazy">
+            </article>
+
+            <div class="tl-dots">
+                <button class="tl-pip on" data-i="0"></button>
+                <button class="tl-pip" data-i="1"></button>
+                <button class="tl-pip" data-i="2"></button>
+                <button class="tl-pip" data-i="3"></button>
+                <button class="tl-pip" data-i="4"></button>
+                <button class="tl-pip" data-i="5"></button>
+                <button class="tl-pip" data-i="6"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        var r = document.getElementById("ab-timeline"); if (!r) return;
+        var y = r.querySelectorAll(".tl-yr"), s = r.querySelectorAll(".tl-slide"), p = r.querySelectorAll(".tl-pip"), c = 0, t, d = 5000, h = 0;
+        function go(i) {
+            for (var j = 0; j < y.length; j++) { y[j].classList.remove("on"); s[j].classList.remove("on"); p[j].classList.remove("on") }
+            y[i].classList.add("on"); s[i].classList.add("on"); p[i].classList.add("on"); c = i;
+        }
+        function next() { if (h) return; go((c + 1) % y.length) }
+        function start() { if (t) clearInterval(t); t = setInterval(next, d) }
+        for (var i = 0; i < y.length; i++) { (function (i) { y[i].onclick = function () { go(i); start() } })(i) }
+        for (var i = 0; i < p.length; i++) { (function (i) { p[i].onclick = function () { go(i); start() } })(i) }
+        r.onmouseenter = function () { h = 1 }; r.onmouseleave = function () { h = 0 };
+        go(0); start();
+    })();
+</script>
+</div>
